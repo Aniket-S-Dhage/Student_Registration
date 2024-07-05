@@ -1,0 +1,24 @@
+body{
+background-color: rgba(183, 189, 162, 0.4);
+}
+
+.btndiv {
+        background-color: rgb(83, 163, 62);
+        width: 15%;
+        height: 50px;
+        font-size: 20px;
+        color: #ffffff;
+        border: none;
+        box-shadow: 5px 5px rgba(0,0,0);
+        transition: transform 0.35 ease;
+    }
+.btndiv:hover {
+        background-color: rgb(51, 97, 39);
+        box-shadow: 1px 1px rgba(0,0,0);
+    }
+
+.btndiv:active{
+
+    transform: translateX(4px) translateY(4px);
+
+}
