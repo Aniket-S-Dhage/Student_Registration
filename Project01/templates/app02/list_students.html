@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block title%}
+<title>Show</title>
+{%endblock%}
+
+{% block body %}
+<h1>Show Students</h1>
+<div class="w-75 text-center mx-auto m-5">
+    <table class="table table-light">
+        <thead>
+        <tr class="table-primary">
+            <td>ID</td>
+            <td>Name</td>
+            <td>Photo</td>
+            <td>Roll</td>
+            <td>Address</td>
+            <td>Pincode</td>
+            <td>Course</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for stu in students %}
+        <tr class="table-success">
+            <td>{{stu.id}}</td>
+            <td>{{stu.name}}</td>
+            {% if stu.profile_photo %}
+            <td><img src="{{stu.profile_photo.url}}" width="90" height="100"/></td>
+            {% else %}
+            <td><img src="{% static 'defaults/pp.jpg' %}" width="90"/></td>
+            {% endif %}
+
+            <td>{{stu.roll}}</td>
+            <td>{{stu.address}}</td>
+            <td>{{stu.pincode}}</td>
+            <td>
+                {% for course in stu.courses.all %}
+                    ({{course.cname}}),
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

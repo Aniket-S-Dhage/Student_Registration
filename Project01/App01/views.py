@@ -6,7 +6,7 @@ from .form import StudentRegisterForm, CourseRegisterForm
 
 class StudentListView(View):
     def get(self, request):
-        students = Student.objects.prefetch_related('courses')      ##Prefetch_related will reduce db queries by fetching related object data rather than lazy_loading
+        students = Student.objects.all()
         context = {"students": students}
         template_name = 'app01/show.html'
         return render(request, template_name, context)
